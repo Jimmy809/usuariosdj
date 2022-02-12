@@ -14,12 +14,12 @@ BASE_DIR = Ph(__file__).ancestor(3)
 with open("secret.json") as f:
     secret = json.loads(f.read())
     
-def get_secret(secret_name,secrets=secret):
+def get_secret(secret_name, secrets=secret):
     try:
         return secrets[secret_name]
     except:
         msg = "la variable %s no existe" % secret_name
-        raise ImproperlyConfigured
+        raise ImproperlyConfigured(msg)
 
 
 SECRET_KEY = get_secret('SECRET_KEY')
@@ -38,6 +38,9 @@ DJANGO_APPS = (
 
 LOCAL_APPS = (
     'applications.users',
+    'applications.home',
+
+    
 )
 
 THIRD_PARTY_APPS =()
@@ -94,14 +97,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 # para indicarle a django que vamos usar otra version de la app user
-AUTH_USER_MODEL = 'user.User'
+AUTH_USER_MODEL = 'users.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
 LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'UTC+1'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 

@@ -1,0 +1,13 @@
+<html lang='es'>
+<head>
+</head>
+<body>
+
+    <h1>Cambiar Contraseña: {{user.get_full_name}}</h1>
+    <form method="post">{% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Actualizar</button>
+
+    </form>
+</body>
+</html>

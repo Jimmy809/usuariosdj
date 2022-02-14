@@ -1,14 +1,18 @@
 <html lang='es'>
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de usuario</title>
 </head>
 <body>
 
     <h1>Panel de usuario</h1>
-    <h3>Bienvenido: </h3>
+    <h3>Bienvenido: {{ user.get_full_name }}</h3>    
     <ul>
-        <li><a href="#">Cerrar Session</a></li>
-        <li><a href="#">Actualizar Datos</a></li>
+        <li><a href="{% url 'users_app:user-logout' %}">Cerrar Session</a></li>
+        <li><a href="{% url 'users_app:user-update' %}">Actualizar Datos</a></li>
     </ul>
 
 </body>
